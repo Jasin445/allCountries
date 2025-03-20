@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin:0;
+}
+
+:root{
+  background-color: #f6f5f3;
+}
+
+.dark {
+  background-color:  #222d38;
+  color: #fff;
+}
+
+/* 
+@media (max-width: 2000px) {
+  .some{
+    max-width:1340px;
+    display: flex;
+    justify-content: space-between;
+    gap:50%;
+  }
+
+  .drop{
+    width: 530px;
+    flex-basis: 60%;
+  }
+} */
+
+@media (max-width:1330px) {
+  .grid{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 981px){
+  .grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 940px){
+ .some{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+ }
+ .shift{
+  margin-top: 120px;
+ }
+
+ .gr{
+  width: 300px !important;
+  min-width: 0;
+ }
+
+ .drop{
+  width:100% !important;
+ }
+
+}
+
+@media (max-width: 584px){
+  .grid{
+    grid-template-columns: 1fr;
+  }
+
+ .h{
+    height:199px;
+    margin-bottom: 0;
+  }
+
+  .hi{
+    height:400px;
+  }
+
+  .mm{
+    height: auto; 
+    margin-bottom:15px  
+}
+
+}
+
+@media (max-width:1166px){
+  .collapsed{
+    flex-wrap: wrap;
+  }
+
+  .down{
+    margin-bottom: 0px;
+  }
+
+  .width{
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .margin{
+    margin:0;
+    margin-top: 10px;
+  }
+
+  .widther{
+    min-width: 364px;
+  }
+
+  .change{
+    min-width: 0;
+    width:100%;
+    height: 35vw;
+  }
+
+}
+
+@media (max-width: 850px){
+  .flexWrap{
+    flex-wrap: wrap;
+  }
+
+  .increase{
+    flex-basis: 100%;
+  }
+
+  .change{
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    margin-bottom: 60px;
+  }
+
+  .widther{
+    min-width:0;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .down{
+    min-width: 0;
+    width:100%;
+  }
+
+  .collapsed{
+    min-width:0;
+    width:100%;
+  }
+}
+
+@media (max-width:618px){
+  .some{
+    display: grid;
+    grid-template-columns: 100%;
+    row-gap: 20px;
+   }
+  
+
+  .l{
+    width:98%;
+  }
+
+  .gr{
+    min-width: 0!important;
+    max-width: 300px !important;
+  }
+
+  .mm{
+    font-size:23px;
+  }
+  
+}
+
+@media (max-width: 340px){
+  .gr{
+    width: 100% !important;
+  }
+}
+
