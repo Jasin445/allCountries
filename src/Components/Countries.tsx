@@ -8,12 +8,14 @@ export default function Countries() {
 
     if (!loaderData) {
         return <h1 className="h-[100vh] flex justify-center items-center text-green-500 text-3xl text-center"> Loading...</h1>;
+    }else{
+
+        return (
+            <div>
+                <SearchAndFilter theme={theme} data={loaderData}/>
+                <CountryCard data={loaderData} />
+            </div>
+        );
     }
 
-    return (
-        <div>
-            <SearchAndFilter theme={theme} data={loaderData}/>
-            <CountryCard data={loaderData} />
-        </div>
-    );
 }
