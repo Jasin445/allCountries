@@ -6,7 +6,7 @@ import { LayoutContext } from "./Context";
 
 
 export default function Layout(){
-    const countries = useLoaderData();
+    const countries: any = useLoaderData();
     const {theme, setTheme, darkModeToggle} = useContext<any>(LayoutContext)
     const [country, setCountry] = useState(null)
     

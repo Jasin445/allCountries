@@ -6,7 +6,7 @@ import darkBackButton from '../assets/call-made2.png'
 
 export default function CountryDetails(){
   
-    const filteredDetails = useLoaderData()
+    const filteredDetails: any = useLoaderData()
     const {theme, country: data} = useOutletContext<any>()
 
    let key = filteredDetails.currencies ? Object.keys(filteredDetails.currencies)[0] : null 

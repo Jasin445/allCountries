@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { getData } from './Components/functions.tsx'
 import CountryDetails from './Components/CountryDetails.tsx'
 import ErrorComponent from './Components/ErrorComponent.tsx'
@@ -52,9 +52,7 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <DarkModeProvider>
-    <RouterProvider router={router}>
-    <Navigate to="/countries" replace />
-    </RouterProvider>
+    <RouterProvider router={router} />
     </DarkModeProvider>
 
     
