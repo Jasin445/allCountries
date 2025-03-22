@@ -2,6 +2,7 @@ import { Key, ReactNode, useMemo} from "react"
 import { Link, useSearchParams } from "react-router-dom";
 import { usePaginate } from "./usePaginate";
 import Pagination from "./Pagination";
+import ErrorComponent from "./ErrorComponent";
 
 export default function CountryCard({ data }: any) {
     const [searchParam] = useSearchParams();
@@ -17,7 +18,7 @@ export default function CountryCard({ data }: any) {
     
     const searchedCountry = useMemo(() => {
         return searchCountryName ? filteredRegion.filter((country: any) => country?.name?.official.toLowerCase().includes(searchCountryName?.toLowerCase())) : filteredRegion}, [filteredRegion, searchCountryName]);
-        
+       
         const {totalPages, countryData: countries, setCurrentPage} = usePaginate(8, searchedCountry)
        
         
@@ -54,7 +55,7 @@ export default function CountryCard({ data }: any) {
 
         </div> 
         :
-        <h1 className="h-[60vh] flex justify-center items-center text-red-500 text-3xl text-center"> No Countries Found!</h1>
+        <ErrorComponent err='No Countries Found!' noHead/>
         }
 
         <Pagination searchQuery={searchCountryName} totalPages={totalPages} setCurrentPage={setCurrentPage}/>

@@ -12,7 +12,7 @@ export default {
 
       },
       screens: {
-        'max-sm': { 'max': '620px' }, // Custom extra small screen
+        'max-sm': { 'max': '480px' }, // Custom extra small screen
       },
     },
   },
