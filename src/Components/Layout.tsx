@@ -3,6 +3,8 @@ import Navbar from "./Navbar";
 import {  Await, Outlet, useLoaderData } from "react-router-dom";
 import { LayoutContext } from "./Context";
 import ErrorComponent from "./ErrorComponent";
+import ScrollToTop from "./Scroll";
+
 
 
 
@@ -11,6 +13,7 @@ export default function Layout(){
     const {theme, setTheme, darkModeToggle} = useContext<any>(LayoutContext)
     return (
         <>
+            <ScrollToTop />
             <Navbar />
             <Suspense fallback={<ErrorComponent err={'Loading Countries...'} />}>
                 <Await resolve={countries.data} errorElement={countries.data}>
