@@ -9,7 +9,6 @@ export default function CountryDetails() {
     const filteredDetails: any = useLoaderData()
     const { theme } = useOutletContext<any>()
     const data: any = useSelector<any>(state => state.countryData.data)
-    console.log(data)
     let key = filteredDetails.currencies ? Object.keys(filteredDetails.currencies)[0] : null
     let key1 = filteredDetails.name.nativeName ? Object.keys(filteredDetails.name.nativeName)[0] : null
     let key2 = filteredDetails.languages ? Object.keys(filteredDetails.languages).map((language, index) => {

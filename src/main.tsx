@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, Navigate, RouterProvider, defer } from "react-router-dom"
+import { createBrowserRouter, Navigate, RouterProvider} from "react-router-dom"
 import { getData } from './Components/functions.tsx'
 import CountryDetails from './Components/CountryDetails.tsx'
 import ErrorComponent from './Components/ErrorComponent.tsx'
@@ -43,7 +43,6 @@ const router = createBrowserRouter(
               cca3: any
               name: {common: any}
       }) => nation.cca3 === params.id)
-        console.log(spec)
         return spec;
           }
       },
