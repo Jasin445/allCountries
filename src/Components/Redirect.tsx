@@ -21,6 +21,6 @@ export default function Redirecting() {
     return <>
     <Navbar></Navbar>
     <SearchAndFilter></SearchAndFilter>
-    <h1 className="h-[70vh] flex justify-center items-center text-green-500 text-3xl text-center">Loading...</h1>;
+    <h1 className="h-[58vh] flex justify-center items-center max-sm:h-[70vh] max-sm:text-2xl text-green-500 text-3xl text-center">Loading...</h1>
     </>
 }

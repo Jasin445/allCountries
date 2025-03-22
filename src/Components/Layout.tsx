@@ -1,34 +1,26 @@
-import { useContext, useEffect, useState } from "react";
+import { Suspense, useContext } from "react";
 import Navbar from "./Navbar";
-import { Outlet, useLoaderData } from "react-router-dom";
+import {  Await, Outlet, useLoaderData } from "react-router-dom";
 import { LayoutContext } from "./Context";
+import ErrorComponent from "./ErrorComponent";
 
 
 
 export default function Layout(){
     const countries: any = useLoaderData();
     const {theme, setTheme, darkModeToggle} = useContext<any>(LayoutContext)
-    const [country, setCountry] = useState(null)
-    
-    
-
-    useEffect(() => {
-        if(countries){
-        setCountry(countries)
-        }
-    }, [countries])
-
-
-    if (!country) {
-        return <h1 className="h-[100vh] flex justify-center items-center text-green-500 text-3xl text-center"> Loading...</h1>;
-    }
-         return <>
-       
-        <Navbar  />
-        <Outlet context={{country, theme, setTheme, darkModeToggle}}/>    
-
+    return (
+        <>
+            <Navbar />
+            <Suspense fallback={<ErrorComponent err={'Loading Countries...'} />}>
+                <Await resolve={countries.data} errorElement={countries.data}>
+                    {(resolvedData) => {
+                       
+                        return <Outlet context={{ resolvedData, theme, setTheme, darkModeToggle }} />;
+                    }}
+                </Await>
+            </Suspense>
         </>
-    
-
+    );
    
 }
