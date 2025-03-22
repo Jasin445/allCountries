@@ -11,3 +11,18 @@ export async function getData(){
         return data;
    
 }
+
+export function dataSetup(filteredDetails: any){
+
+    let key = filteredDetails?.currencies ? Object.keys(filteredDetails?.currencies)[0] : null
+    let key1 = filteredDetails?.name.nativeName ? Object.keys(filteredDetails?.name.nativeName)[0] : null
+    let key2 = filteredDetails?.languages ? Object.keys(filteredDetails?.languages).map((language, index) => {
+        let languages = filteredDetails?.languages[language]
+        if (index < language.length - 1) {
+            languages += ", ";
+        }
+        return languages;
+    }) : null
+
+    return {key, key1, key2}
+}

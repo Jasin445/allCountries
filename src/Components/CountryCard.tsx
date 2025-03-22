@@ -1,5 +1,5 @@
 import { Key, ReactNode, useMemo} from "react"
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { usePaginate } from "./usePaginate";
 import Pagination from "./Pagination";
 import ErrorComponent from "./ErrorComponent";
@@ -8,7 +8,7 @@ export default function CountryCard({ data }: any) {
     const [searchParam] = useSearchParams();
     let region = searchParam.get('region');
     let searchCountryName = searchParam.get('country')
-    
+    const location = useLocation();
   
     
     const filteredRegion = useMemo(() => {
@@ -35,7 +35,7 @@ export default function CountryCard({ data }: any) {
                         name: any; cca2: Key | null | undefined;
                         flags: { png: string | undefined }
                     }) => (
-                        <Link to={`${country.cca3}`} key={country.name.official}> <div className="w-[100%] bg-white shadow-second rounded-[5px] h-[356px] hi dark:bg-[#2B3844]">
+                        <Link to={`${country.cca3}`} state={{prev: location.pathname}} key={country.name.official}> <div className="w-[100%] bg-white shadow-second rounded-[5px] h-[356px] hi dark:bg-[#2B3844]">
 
                             <div>
                                 <img className="w-[100%] h-[160px] rounded-t-[5px] h" src={country.flags.png} alt={`image of ${country.name?.common}`} />

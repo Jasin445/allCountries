@@ -1,22 +1,17 @@
-import { Link, useOutletContext, useLoaderData} from "react-router-dom"
+import { Link, useOutletContext, useLoaderData, useLocation} from "react-router-dom"
 import backButton from '../assets/call-made.png'
-
+import { dataSetup } from "./functions"
 import darkBackButton from '../assets/call-made2.png'
 
 
 export default function CountryDetails() {
     const filteredDetails: any = useLoaderData()
     const { theme, resolvedData: data } = useOutletContext<any>()
-    console.log(typeof filteredDetails, data)
-    let key = filteredDetails?.currencies ? Object.keys(filteredDetails?.currencies)[0] : null
-    let key1 = filteredDetails?.name.nativeName ? Object.keys(filteredDetails?.name.nativeName)[0] : null
-    let key2 = filteredDetails?.languages ? Object.keys(filteredDetails?.languages).map((language, index) => {
-        let languages = filteredDetails?.languages[language]
-        if (index < language.length - 1) {
-            languages += ", ";
-        }
-        return languages;
-    }) : null
+    const location = useLocation();
+
+
+    const keys = dataSetup(filteredDetails)
+    const {key, key1, key2} = keys;
 
     let borders = filteredDetails?.borders ? (filteredDetails?.borders.map((border: any) => {
 
@@ -36,11 +31,13 @@ export default function CountryDetails() {
 
     })) : null
 
-console.log(filteredDetails)
+    const prevState = location?.state?.prev || '..';
+    
+
     return (
         <div className="mt-[100px] p-4">
             <div className="l w-[90%] mx-auto">
-                <Link to="..">
+                <Link to={prevState}>
                     <button className="flex w-[136px] rounded-[6px] max-sm:mb-11 h-[40px] gap-[10px] items-center shadow-btn justify-center mb-[60px] dark:bg-[#2B3844] dark:shadow-dark">
                         <img width="20px" height="20px" src={theme === "dark" ? darkBackButton : backButton} alt="" />
                         <p>Back</p>

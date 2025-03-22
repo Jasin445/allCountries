@@ -8,14 +8,12 @@ import { useSearchParams } from 'react-router-dom'
 import { LayoutContext } from './Context'
 
 
-export default function SearchAndFilter({data}: any){
+export default function SearchAndFilter(){
     const [toggle, setToggle] = useState(false)
     const context = useContext(LayoutContext)
     const filterRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLDivElement>(null);
     const [searchParam, setSearchParam] = useSearchParams();
-    // const countries = searchParam.get('region')
-
     if(!context){
         return null
     }
@@ -100,7 +98,7 @@ export default function SearchAndFilter({data}: any){
        ref={filterRef}
        >
        <ul>
-       <Filter data={data} setSearchTerms={setSearchTerms} setSearchParam={setSearchParam} />
+       <Filter setSearchTerms={setSearchTerms} setSearchParam={setSearchParam} />
        </ul>
 
        </BoxShadow>}
