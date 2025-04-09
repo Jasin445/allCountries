@@ -1,15 +1,19 @@
 
 
 export async function getData(){
-
+    try{
         const response = await fetch('https://restcountries.com/v3.1/all');
-
+        
         if(!response.ok){
-            throw new Error ("An Error Occured While Fetching the Data!!")
+            throw {message: `Network response was not ok: ${response.status}`}
         }
+
         const data = await response.json()
+       
         return data;
-   
+    }catch(error){
+        throw {message: "Server down or network error"}
+    }
 }
 
 export function dataSetup(filteredDetails: any){

@@ -20,7 +20,7 @@ export default function Layout(){
             <Navbar />
               {location.pathname === '/' && <SearchAndFilter /> }
             <Suspense fallback={<ErrorComponent err={'Loading Countries...'} />}>
-                <Await resolve={countries.data} errorElement={countries.data}>
+                <Await resolve={countries.data} errorElement={countries?.data?.message}>
                     {(resolvedData) => {
 
                         return <Outlet context={{ resolvedData, theme, setTheme, darkModeToggle }} />;

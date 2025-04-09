@@ -3,6 +3,6 @@ import { defer } from 'react-router-dom'
 
 export async function countriesData(){
         
-     return defer({data: getData()})
+     return defer({data: getData() ?? null})
 
   }
